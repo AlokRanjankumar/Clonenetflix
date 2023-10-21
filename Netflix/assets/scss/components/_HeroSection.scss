@@ -1,0 +1,177 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/breakpoints" as *;
+
+.heroSection {
+  width: 100%;
+  height: 88vh;
+
+  background-size: 72%;
+  background-position-x: right;
+  background-position-y: -28rem;
+  background-repeat: no-repeat;
+
+  @include screen("extraLarge", "large") {
+    margin-bottom: -($mg-0-5);
+  }
+  @include screen("medium") {
+    width: 100%;
+    margin-bottom: $mg-0-5;
+    background-size: cover;
+    background-position: right center;
+  }
+  @include screen("small") {
+    margin-bottom: 0;
+    background-size: 100%;
+    background-position: center -6rem;
+  }
+}
+
+.rightGradient {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right, $body-color 26%, transparent 74%);
+  @include screen("large") {
+    background: linear-gradient(to right, $body-color 28%, transparent 72%);
+  }
+  @media screen and (max-width: 992px) {
+    background: linear-gradient(to right, $body-color 10%, transparent 90%);
+  }
+
+  @include screen("small") {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: linear-gradient(to top, $body-color 20%, transparent 80%);
+  }
+  @media screen and (max-width: 414px) {
+    background: linear-gradient(to top, $body-color 40%, transparent 60%);
+  }
+}
+
+.mediaContent {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to top, $body-color 10%, transparent 90%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info {
+  margin-top: $mg-1-5;
+  @include screen("medium") {
+    margin-top: $mg-2;
+  }
+  @include screen("small") {
+    margin-top: 8rem;
+  }
+  @include screen("tiny") {
+    margin-top: 10rem;
+  }
+
+  .title {
+    font-size: $biggest-font-size;
+
+    @include screen("large") {
+      width: 40rem;
+    }
+    @include screen("medium") {
+      width: 34rem;
+    }
+    @include screen("small") {
+      width: 20rem;
+    }
+    @include screen("tiny") {
+      font-size: $h1-font-size;
+    }
+  }
+
+  .row {
+    display: flex;
+    margin-top: $mg-0-5;
+
+    //👇🏽 Apply this style to all children:
+    & > * {
+      margin-right: $mg-1;
+
+      @include screen("extraTiny") {
+        font-size: $small-font-size;
+        margin-right: $mg-0-75;
+      }
+    }
+  }
+
+  .points {
+    color: #44dd66;
+  }
+
+  .genres {
+    @include screen("small") {
+      font-size: $tiny-font-size;
+    }
+  }
+}
+
+.desc {
+  margin-top: $mg-0-75;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //☝🏽 Add "..." in the end
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  //☝🏽 Line count
+  -webkit-box-orient: vertical;
+
+  @include screen("extraLarge", "large") {
+    width: 35rem;
+  }
+  @include screen("medium", "small") {
+    width: 23rem;
+  }
+  @include screen("small") {
+    font-size: $small-font-size;
+  }
+  @include screen("tiny") {
+    width: 18rem;
+  }
+}
+
+.btns {
+  margin: $mg-1 0;
+  font-weight: $wgt-semi-bold;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $mg-1;
+
+  @include screen("small") {
+    font-size: 0.95rem;
+  }
+  @include screen("tiny") {
+    font-size: $small-font-size;
+  }
+
+  .primaryBtn {
+    border-radius: $border-inside-radius;
+    background: white;
+    color: #000;
+    padding: 0.7rem 1.5rem;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .moreBtn {
+    border-radius: $border-inside-radius;
+    background: $border-color;
+    border: 1px solid $border-color;
+    color: white;
+    padding: 0.65rem 0.75rem;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}

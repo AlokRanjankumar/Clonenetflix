@@ -1,0 +1,14 @@
+@use "../abstracts/variables" as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}

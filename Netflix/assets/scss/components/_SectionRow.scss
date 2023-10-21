@@ -1,0 +1,100 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/breakpoints" as *;
+
+.sectionTitle {
+  font-size: $h2-font-size;
+  margin-bottom: $mg-1;
+
+  @include screen("small") {
+    font-size: $h3-font-size;
+    margin-bottom: $mg-0-5;
+  }
+}
+
+.content {
+  display: flex;
+  overflow-x: hidden;
+  //Space between sections:
+  margin-bottom: $mg-2;
+  //Space between handle:
+  margin-left: 0;
+  background-color: $body-color;
+
+  @include screen("small") {
+    margin-left: $mg-1;
+  }
+  @include screen("extraTiny") {
+    margin-left: $mg-1-5;
+  }
+}
+
+.media {
+  display: flex;
+}
+
+.item {
+  display: flex;
+  width: 10rem;
+  transition: all ease 0.2s;
+  //Spacing between imgs:
+  margin-right: $mg-0-25;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  img {
+    width: 100%;
+    cursor: pointer;
+    transform: scale(0.9);
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
+.swiper-slide {
+  width: 10rem !important;
+}
+
+.handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+
+  position: absolute;
+  width: $mg-2;
+  height: 15rem;
+  margin: 0 0;
+
+  background: rgb($container-color, 0.8);
+  z-index: $z-tooltip;
+  cursor: pointer;
+
+  font-size: 3.5rem;
+  color: $title-color;
+  transition: background-color 150ms ease-in-out;
+
+  &:hover {
+    background: $border-color;
+  }
+  &:hover p {
+    transform: scale(1.2);
+  }
+}
+
+#rightBtn {
+  right: 0;
+  padding-left: $mg-0-25;
+  @include screen("small") {
+    padding-left: 0;
+  }
+}
+#leftBtn {
+  left: 0;
+  padding-right: $mg-0-25;
+  @include screen("small") {
+    padding-right: 0;
+  }
+}
